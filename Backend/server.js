@@ -1,27 +1,44 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
 
+// ================================
 // Middleware
+// ================================
+
 app.use(cors());
 
 app.use(express.json());
 
 
-// Test route
+// ================================
+// Serve DEVSTORM Website
+// ================================
+
+// Serve index.html, style.css, app.js, etc.
+app.use(express.static(path.join(__dirname, "..")));
+
+
+// ================================
+// Website Home Page
+// ================================
+
 app.get("/", (req, res) => {
 
-    res.json({
-        success: true,
-        message: "DEVSTORM API is running 🚀"
-    });
+    res.sendFile(
+        path.join(__dirname, "..", "index.html")
+    );
 
 });
 
 
-// Health check
+// ================================
+// Health Check API
+// ================================
+
 app.get("/api/health", (req, res) => {
 
     res.json({
@@ -33,7 +50,10 @@ app.get("/api/health", (req, res) => {
 });
 
 
-// Event information
+// ================================
+// Event Information API
+// ================================
+
 app.get("/api/event", (req, res) => {
 
     res.json({
@@ -54,14 +74,11 @@ app.get("/api/event", (req, res) => {
 
         breaks: {
 
-            dinner:
-                "8:00 PM - 9:30 PM",
+            dinner: "8:00 PM - 9:30 PM",
 
-            morning:
-                "5:00 AM - 9:00 AM",
+            morning: "5:00 AM - 9:00 AM",
 
-            afternoon:
-                "12:30 PM - 2:00 PM"
+            afternoon: "12:30 PM - 2:00 PM"
 
         }
 
@@ -70,7 +87,9 @@ app.get("/api/event", (req, res) => {
 });
 
 
-// Start server
+// ================================
+// Start Server
+// ================================
 
 const PORT = process.env.PORT || 5000;
 
