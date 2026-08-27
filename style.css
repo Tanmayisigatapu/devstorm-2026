@@ -107,50 +107,26 @@ a {
 
 
 .sponsor-logos {
-
     display: flex;
-
     align-items: center;
-
     gap: 18px;
-
     min-width: 310px;
-
 }
 
-
-.spirit-logo {
-
-    width: 145px;
-
-    max-height: 58px;
-
-    object-fit: contain;
-
-}
-
-
-.syncgaze-logo {
-
-    width: 165px;
-
-    max-height: 58px;
-
-    object-fit: contain;
-
+.sponsor-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2d4d;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
 }
 
 
 .logo-divider {
-
     width: 1px;
-
     height: 38px;
-
     background: #dce4ef;
-
 }
-
 
 .navigation {
 
